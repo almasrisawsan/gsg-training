@@ -13,3 +13,9 @@
 # React Dev Tools
 
 # Writing JSX
+
+# Conditional Rendering -> create two components and conditionally render them
+
+# Logical operator && ||
+
+# Rendering lists in map & forEach & for loop
