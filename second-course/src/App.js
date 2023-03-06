@@ -1,17 +1,16 @@
 import "./App.css";
 import logo from "./logo.svg";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-
-const data = [1, 2, 3, 4, 5];
+import LeftColumn from "./components/LeftColumn";
+import RightColumn from "./components/RightColumn";
 
 const App = () => {
   return (
-    <>
-      <Header />
-      <div>Separator</div>
-      <Footer />
-    </>
+    <div class="w3-content w3-margin-top" style={{ maxWidth: "1440px" }}>
+      <div class="w3-row-padding">
+        <LeftColumn />
+        <RightColumn />
+      </div>
+    </div>
   );
 };
 

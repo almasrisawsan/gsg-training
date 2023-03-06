@@ -1,8 +1,12 @@
 import React from "react";
-import "./styles.css";
 
 function MainTitle() {
-  return <h3 className="main-title">MainTitle</h3>;
+  return (
+    <h2 class="w3-text-grey w3-padding-16">
+      <i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
+      Work Experience
+    </h2>
+  );
 }
 
 export default MainTitle;
