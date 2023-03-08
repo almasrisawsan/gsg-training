@@ -1,18 +1,14 @@
-# React Introduction
+# Continue converting HTML to components
 
-# Thinking in React
-
-# Create React App
-
-# React files and folders
-
-# App.js play around
-
-# Creating and nesting components
-
-# React Dev Tools
+# HTML to JSX convertor -> <https://transform.tools/html-to-jsx>
 
 # Writing JSX
+
+## - Using curly braces: A window into the JavaScript world -> examples in app.js
+
+## - String backticks
+
+## - 3 ways of inserting images -> import, require, public
 
 # Conditional Rendering -> create two components and conditionally render them
 
