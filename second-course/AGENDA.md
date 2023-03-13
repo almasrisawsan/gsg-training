@@ -27,3 +27,5 @@
 ## Passing props to components
 
 ## Installing modules
+
+# <https://github.com/brillout/awesome-react-components>
