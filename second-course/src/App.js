@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Mosab Dwaikat for the win :again
+          Learn React
         </a>
       </header>
     </div>
