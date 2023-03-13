@@ -17,52 +17,114 @@ export default App;
 
 /**
  * Examples 
+ * 
+ * //////// expressions 
+ * 
+ *<h1>React is {5 + 5} times better with JSX</h1>
+
+
+ * /////////// if example
  
- * export default function TodoList() {
-  const name = 'Gregorio Y. Zara';
-  return (
-    <h1>{name}'s To Do List</h1>
-  );
-}
-////////////////////////////////////
-const today = new Date();
-
-function formatDate(date) {
-  return new Intl.DateTimeFormat(
-    'en-US',
-    { weekday: 'long' }
-  ).format(date);
+ export default function PackingList() {
+   const x = 5;
+let text = "Goodbye";
+if (x < 10) {
+  text = "Hello";
 }
 
-export default function TodoList() {
   return (
-    <h1>To Do List for {formatDate(today)}</h1>
+    <section>
+      {text}
+    </section>
   );
 }
-/////////////////////////////////////
-const person = {
-  name: 'Gregorio Y. Zara',
-  theme: {
-    backgroundColor: 'black',
-    color: 'pink'
+
+
+
+ * export default function PackingList() {
+  const isPacked =true;
+
+  const checkPacked = ()=>{
+    if(isPacked)
+    return <li className="item">Rice ✔</li>
+
+    else 
+    return <li className="item">Rice</li>
   }
-};
-
-export default function TodoList() {
   return (
-    <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
-      <img
-        className="avatar"
-        src="https://i.imgur.com/7vQD0fPs.jpg"
-        alt="Gregorio Y. Zara"
-      />
+    <section>
+      <h1>Sally Ride's Packing List</h1>
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+        {checkPacked()}
+       
       </ul>
-    </div>
+    </section>
+  );
+}
+////// ternary operators 
+export default function PackingList() {
+  const isPacked =true;
+  return (
+    <section>
+      <h1>Sally Ride's Packing List</h1>
+      <ul>
+        {isPacked?<li className="item">Rice ✔</li>:<li className="item">Rice</li>}
+       
+      </ul>
+    </section>
+  );
+}
+
+/////// example 2
+
+function MissedGoal() {
+	return <h1>MISSED!</h1>;
+}
+
+function MadeGoal() {
+	return <h1>GOAL!</h1>;
+}
+
+function Goal() {
+  const isGoal = true;
+  if (isGoal) {
+    return <MadeGoal/>;
+  }
+  return <MissedGoal/>;
+}
+
+
+//////// Logical &&
+
+
+function Garage() {
+  const cars = ['Ford', 'BMW', 'Audi'];
+  
+  return (
+    <>
+      <h1>Garage</h1>
+      {cars.length > 0 ?
+        <h2>
+          You have {cars.length} cars in your garage.
+        </h2>:<></>
+      }
+    </>
+  );
+}
+
+
+function Garage() {
+  const cars = ['Ford', 'BMW', 'Audi'];
+
+  return (
+    <>
+      <h1>Garage</h1>
+      {cars.length > 0 &&
+        <h2>
+          You have {cars.length} cars in your garage.
+        </h2>
+      }
+    </>
   );
 }
 
