@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          GSG Cohort 2
+          Mosab Dwaikat for the win :again
         </a>
       </header>
     </div>
