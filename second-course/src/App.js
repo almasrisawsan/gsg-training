@@ -2,134 +2,143 @@ import "./App.css";
 import LeftColumn from "./components/LeftColumn";
 import RightColumn from "./components/RightColumn";
 
-function MissedGoal() {
-  return <h1>MISSED!</h1>;
-}
-
-function MadeGoal() {
-  return <h1>GOAL!</h1>;
-}
+const recipes = [
+  {
+    id: "greek-salad",
+    name: "Greek Salad",
+    ingredients: ["tomatoes", "cucumber", "onion", "olives", "feta"],
+  },
+  {
+    id: "hawaiian-pizza",
+    name: "Hawaiian Pizza",
+    ingredients: [
+      "pizza crust",
+      "pizza sauce",
+      "mozzarella",
+      "ham",
+      "pineapple",
+    ],
+  },
+  {
+    id: "hummus",
+    name: "Hummus",
+    ingredients: ["chickpeas", "olive oil", "garlic cloves", "lemon", "tahini"],
+  },
+];
 
 const App = () => {
-  const isPacked = null;
-
-  return <>{isPacked || <h2>Hello</h2>}</>;
+  const salad = recipes.filter(({ name }) => name === "Greek Salad");
+  return (
+    <div>
+      <div>
+        <h1>Recipes</h1>
+        {salad.map(({ id, name, ingredients }) => (
+          <div key={id}>
+            <h2>{name}</h2>
+            <ul>
+              {ingredients.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default App;
 
 /**
- * Examples 
- * 
- * //////// expressions 
- * 
- *<h1>React is {5 + 5} times better with JSX</h1>
-
-
- * /////////// if example
- 
- export default function PackingList() {
-   const x = 5;
-let text = "Goodbye";
-if (x < 10) {
-  text = "Hello";
-}
-
-  return (
-    <section>
-      {text}
-    </section>
-  );
-}
-
-
-
- * export default function PackingList() {
-  const isPacked =true;
-
-  const checkPacked = ()=>{
-    if(isPacked)
-    return <li className="item">Rice ✔</li>
-
-    else 
-    return <li className="item">Rice</li>
-  }
-  return (
-    <section>
-      <h1>Sally Ride's Packing List</h1>
-      <ul>
-        {checkPacked()}
-       
-      </ul>
-    </section>
-  );
-}
-////// ternary operators 
-export default function PackingList() {
-  const isPacked =true;
-  return (
-    <section>
-      <h1>Sally Ride's Packing List</h1>
-      <ul>
-        {isPacked?<li className="item">Rice ✔</li>:<li className="item">Rice</li>}
-       
-      </ul>
-    </section>
-  );
-}
-
-/////// example 2
-
-function MissedGoal() {
-	return <h1>MISSED!</h1>;
-}
-
-function MadeGoal() {
-	return <h1>GOAL!</h1>;
-}
-
-function Goal() {
-  const isGoal = true;
-  if (isGoal) {
-    return <MadeGoal/>;
-  }
-  return <MissedGoal/>;
-}
-
-
-//////// Logical &&
-
-
-function Garage() {
-  const cars = ['Ford', 'BMW', 'Audi'];
-  
-  return (
-    <>
-      <h1>Garage</h1>
-      {cars.length > 0 ?
-        <h2>
-          You have {cars.length} cars in your garage.
-        </h2>:<></>
-      }
-    </>
-  );
-}
-
-
-function Garage() {
-  const cars = ['Ford', 'BMW', 'Audi'];
-
-  return (
-    <>
-      <h1>Garage</h1>
-      {cars.length > 0 &&
-        <h2>
-          You have {cars.length} cars in your garage.
-        </h2>
-      }
-    </>
-  );
-}
-
- * 
+ * Convert CV repeated components into maps
  */
+/* Rendering Lists 
+1- Create new component 
+2- add the list 
+
+
+
+3- Create a new array of just “chemist” people
+const chemists = people.filter(person =>
+  person.profession === 'chemist'
+);
+
+4- Now map over chemists:
+const listItems = chemists.map(person =>
+  <li>
+     <img
+       src={getImageUrl(person)}
+       alt={person.name}
+     />
+     <p>
+       <b>{person.name}:</b>
+       {' ' + person.profession + ' '}
+       known for {person.accomplishment}
+     </p>
+  </li>
+);
+
+5- return chemists list
+
+export function getImageUrl(person) {
+  return (
+    'https://i.imgur.com/' +
+    person.imageId +
+    's.jpg'
+  );
+}
+
+export default function List() {
+  const chemists = people.filter(person =>
+    person.profession === 'chemist'
+  );
+  const listItems = chemists.map(person =>
+    <li>
+      <img
+        src={getImageUrl(person)}
+        alt={person.name}
+      />
+      <p>
+        <b>{person.name}:</b>
+        {' ' + person.profession + ' '}
+        known for {person.accomplishment}
+      </p>
+    </li>
+  );
+  return <ul>{listItems}</ul>;
+}
+
+
+/// Example 2 
+* export const recipes = [{
+  id: 'greek-salad',
+  name: 'Greek Salad',
+  ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+}, {
+  id: 'hawaiian-pizza',
+  name: 'Hawaiian Pizza',
+  ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+}, {
+  id: 'hummus',
+  name: 'Hummus',
+  ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+}];
+
+
+ * export default function RecipeList() {
+  return (
+    <div>
+      <h1>Recipes</h1>
+      {recipes.map(recipe =>
+        <div key={recipe.id}>
+          <h2>{recipe.name}</h2>
+          <ul>
+            // put recipes and ingredients in each recipe
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
+*/

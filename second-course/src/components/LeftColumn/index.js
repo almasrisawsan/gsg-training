@@ -4,6 +4,7 @@ import ListItem from "../ListItem";
 import SubTitle from "../SubTitle";
 import ProgressBar from "../ProgressBar";
 import lion from "./lion.jpg";
+import { address, skills } from "./data";
 
 function LeftColumn() {
   return (
@@ -11,23 +12,23 @@ function LeftColumn() {
       <div class="w3-white w3-text-grey w3-card-4">
         <HeroImage />
         <div class="w3-container">
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
+          {address.map(({ label, icon, count, value }) => (
+            <ListItem />
+          ))}
+
           <hr />
 
           <SubTitle />
-          <ProgressBar />
-          <ProgressBar />
-          <ProgressBar />
-          <ProgressBar />
+          {skills.map(({ label, percentage }) => (
+            <ProgressBar />
+          ))}
+
           <br />
 
           <SubTitle />
-          <ProgressBar />
-          <ProgressBar />
-          <ProgressBar />
+          {skills.map((item) => (
+            <ProgressBar />
+          ))}
           <br />
         </div>
       </div>
