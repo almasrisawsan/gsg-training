@@ -2,15 +2,18 @@ import "./App.css";
 import LeftColumn from "./components/LeftColumn";
 import RightColumn from "./components/RightColumn";
 
+function MissedGoal() {
+  return <h1>MISSED!</h1>;
+}
+
+function MadeGoal() {
+  return <h1>GOAL!</h1>;
+}
+
 const App = () => {
-  return (
-    <div class="w3-content w3-margin-top" style={{ maxWidth: "1440px" }}>
-      <div class="w3-row-padding">
-        <LeftColumn />
-        <RightColumn />
-      </div>
-    </div>
-  );
+  const isPacked = null;
+
+  return <>{isPacked || <h2>Hello</h2>}</>;
 };
 
 export default App;
