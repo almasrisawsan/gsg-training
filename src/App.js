@@ -1,4 +1,5 @@
 import "./App.css";
+import Carousel from "./components/Exercises/Carousel";
 import LeftColumn from "./components/LeftColumn";
 import RightColumn from "./components/RightColumn";
 import Shop from "./components/Shop";
@@ -7,7 +8,7 @@ const App = () => {
   return (
     <div className="w3-content w3-margin-top" style={{ maxWidth: "1440px" }}>
       <div className="w3-row-padding">
-        <Shop />
+        <Carousel />
       </div>
     </div>
   );
