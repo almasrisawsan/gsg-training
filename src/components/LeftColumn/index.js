@@ -3,8 +3,12 @@ import HeroImage from "../HeroImage";
 import ListItem from "../ListItem";
 import SubTitle from "../SubTitle";
 import ProgressBar from "../ProgressBar";
-import lion from "./lion.jpg";
 import { address, skills } from "./data";
+
+const heroImageData = {
+  name: "Jane Doe",
+  image: "https://www.w3schools.com/w3images/avatar_hat.jpg",
+};
 
 function LeftColumn() {
   return (
