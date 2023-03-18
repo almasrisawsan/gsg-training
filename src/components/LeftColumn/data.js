@@ -43,3 +43,18 @@ export const skills = [
     percentage: "50%",
   },
 ];
+
+export const languages = [
+  {
+    label: "English",
+    percentage: "40%",
+  },
+  {
+    label: "Spanish",
+    percentage: "70%",
+  },
+  {
+    label: "German",
+    percentage: "15%",
+  },
+];

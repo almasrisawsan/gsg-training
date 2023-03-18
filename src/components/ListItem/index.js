@@ -1,10 +1,10 @@
 import React from "react";
 
-function ListItem() {
+function ListItem({ icon, label }) {
   return (
     <p>
-      <i className="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>
-      Designer
+      <i className={`${icon} fa-fw w3-margin-right w3-large w3-text-teal`}></i>
+      {label}
     </p>
   );
 }

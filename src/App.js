@@ -1,13 +1,13 @@
 import "./App.css";
 import LeftColumn from "./components/LeftColumn";
 import RightColumn from "./components/RightColumn";
+import Shop from "./components/Shop";
 
 const App = () => {
   return (
     <div className="w3-content w3-margin-top" style={{ maxWidth: "1440px" }}>
       <div className="w3-row-padding">
-        <LeftColumn />
-        <RightColumn />
+        <Shop />
       </div>
     </div>
   );
