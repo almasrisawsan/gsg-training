@@ -1,9 +1,9 @@
 const ProductList = () => {
   return (
-    <div class="w3-content w3-margin-top" style={{ maxWidth: "1440px" }}>
-      <div class="w3-row-padding">
-        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-          <div class="w3-quarter">
+    <div className="w3-content w3-margin-top" style={{ maxWidth: "1440px" }}>
+      <div className="w3-row-padding">
+        <div className="w3-row-padding w3-padding-16 w3-center" id="food">
+          <div className="w3-quarter">
             <img
               src="https://www.w3schools.com/w3images/sandwich.jpg"
               alt="Sandwich"
@@ -14,7 +14,7 @@ const ProductList = () => {
               lipsum.
             </p>
           </div>
-          <div class="w3-quarter">
+          <div className="w3-quarter">
             <img
               src="https://www.w3schools.com/w3images/steak.jpg"
               alt="Steak"
@@ -25,7 +25,7 @@ const ProductList = () => {
               praesent tincidunt ipsum lipsum.
             </p>
           </div>
-          <div class="w3-quarter">
+          <div className="w3-quarter">
             <img
               src="https://www.w3schools.com/w3images/cherries.jpg"
               alt="Cherries"
@@ -34,7 +34,7 @@ const ProductList = () => {
             <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
             <p>What else?</p>
           </div>
-          <div class="w3-quarter">
+          <div className="w3-quarter">
             <img
               src="https://www.w3schools.com/w3images/wine.jpg"
               alt="Pasta and Wine"

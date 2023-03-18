@@ -4,8 +4,8 @@ import RightColumn from "./components/RightColumn";
 
 const App = () => {
   return (
-    <div class="w3-content w3-margin-top" style={{ maxWidth: "1440px" }}>
-      <div class="w3-row-padding">
+    <div className="w3-content w3-margin-top" style={{ maxWidth: "1440px" }}>
+      <div className="w3-row-padding">
         <LeftColumn />
         <RightColumn />
       </div>

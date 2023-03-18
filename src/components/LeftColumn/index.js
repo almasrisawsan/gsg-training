@@ -12,10 +12,10 @@ const heroImageData = {
 
 function LeftColumn() {
   return (
-    <div class="w3-third">
-      <div class="w3-white w3-text-grey w3-card-4">
+    <div className="w3-third">
+      <div className="w3-white w3-text-grey w3-card-4">
         <HeroImage />
-        <div class="w3-container">
+        <div className="w3-container">
           {address.map(({ label, icon, count, value }) => (
             <ListItem />
           ))}

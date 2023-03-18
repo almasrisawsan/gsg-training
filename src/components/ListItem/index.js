@@ -3,7 +3,7 @@ import React from "react";
 function ListItem() {
   return (
     <p>
-      <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>
+      <i className="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>
       Designer
     </p>
   );
