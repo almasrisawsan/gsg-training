@@ -18,15 +18,7 @@ const App = () => {
 
 export default App;
 
-//Passing props to components, key-value pairs, objects, arrays, destructuring
-//Specifying default values
-//Sending props with spread operator
-//Exercise-1 -> ProductList
-//Exercise-2 -> Shop
-//Exercise-3 -> Slider
-//Exercise-4 -> Offers
-//Passing functions/children to components -> Products
-//
-
-// module styling
-// installing modules
+// Keeping components pure
+//   It minds its own business. It does not change any objects or variables that existed before it was called.
+//   Same inputs, same output. Given the same inputs, a pure function should always return the same result.
+// Installing Modules -> https://github.com/brillout/awesome-react-components
