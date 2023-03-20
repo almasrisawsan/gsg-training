@@ -1,6 +1,6 @@
 /**
  * Create a component to render all carts data
- * Filter carts with price > 100
+ * Filter carts with cart total > 100
  */
 
 const cartsObject = {
@@ -1106,7 +1106,35 @@ const cartsObject = {
       totalQuantity: 8,
     },
   ],
-  total: 20,
+  total: 20000,
   skip: 0,
   limit: 20,
 };
+
+function Cart() {
+  const { carts, total } = cartsObject;
+  return (
+    <>
+      <h2>Carts Total:{total}</h2>
+      {carts
+        .filter((item) => item.total > 100)
+        .map((cart) => {
+          const { total, products } = cart;
+          return (
+            <>
+              <h4>Cart Total : {total}</h4>
+              {products
+                .filter((item) => item.total > 100)
+                .map((product) => {
+                  const { title: ProductTitle } = product;
+                  return <div>{ProductTitle}</div>;
+                })}
+              <hr />
+            </>
+          );
+        })}
+    </>
+  );
+}
+
+export default Cart;

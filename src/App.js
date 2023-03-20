@@ -3,14 +3,16 @@ import Carousel from "./components/Exercises/Carousel";
 import LeftColumn from "./components/LeftColumn";
 import RightColumn from "./components/RightColumn";
 import Shop from "./components/Shop";
+import Cart from "./components/Exercises/Cart";
+import Badge from "./components/Badge";
+import Label from "./components/Label";
 
 const App = () => {
   return (
-    <div className="w3-content w3-margin-top" style={{ maxWidth: "1440px" }}>
-      <div className="w3-row-padding">
-        <Carousel />
-      </div>
-    </div>
+    <>
+      <Badge />
+      <Label />
+    </>
   );
 };
 
