@@ -1,13 +1,24 @@
-// it’s completely fine to change variables and objects that you’ve just created while rendering.
-
-function Cup({ guest }) {
-  return <h2>Tea cup for guest #{guest}</h2>;
+function Button({ onClick, children }) {
+  return <button onClick={onClick}>{children}</button>;
 }
 
-export default function TeaGathering() {
-  let cups = [];
-  for (let i = 1; i <= 12; i++) {
-    cups.push(<Cup key={i} guest={i} />);
+function PlayButton({ movieName }) {
+  function handlePlayClick() {
+    alert(`Playing ${movieName}!`);
   }
-  return cups;
+
+  return <Button onClick={handlePlayClick}>Play "{movieName}"</Button>;
+}
+
+function UploadButton() {
+  return <Button onClick={() => alert("Uploading!")}>Upload Image</Button>;
+}
+
+export default function Toolbar() {
+  return (
+    <div>
+      <PlayButton movieName="Kiki's Delivery Service" />
+      <UploadButton />
+    </div>
+  );
 }

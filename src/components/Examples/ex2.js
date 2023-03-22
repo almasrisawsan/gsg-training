@@ -1,17 +1,12 @@
-let guest = 0;
-
-function Cup() {
-  // Bad: changing a preexisting variable!
-  guest = guest + 1;
-  return <h2>Tea cup for guest #{guest}</h2>;
+function AlertButton({ message, children }) {
+  return <button onClick={() => alert(message)}>{children}</button>;
 }
 
-export default function TeaSet() {
+export default function Toolbar() {
   return (
-    <>
-      <Cup />
-      <Cup />
-      <Cup />
-    </>
+    <div>
+      <AlertButton message="Playing!">Play Movie</AlertButton>
+      <AlertButton message="Uploading!">Upload Image</AlertButton>
+    </div>
   );
 }
