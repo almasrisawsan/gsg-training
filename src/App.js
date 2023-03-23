@@ -25,6 +25,6 @@ export default App;
 
 // localStorage & sessionStorage
 // Adding event handlers
-// Passing functions as props
+// Passing functions as props -> ProductList example
 // exercise -> react-slick
 // Material UI

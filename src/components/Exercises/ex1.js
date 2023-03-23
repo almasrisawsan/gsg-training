@@ -1,21 +1,19 @@
 /**
- * 
- * This component tries to set the <h1>’s CSS class to "night" 
- * during the time from midnight to six hours in the morning, 
- * and "day" at all other times. However, 
- * it doesn’t work. Can you fix this component?
-
-You can verify whether your solution works by temporarily changing the computer’s timezone.
- When the current time is between midnight and six in the morning,
-  the clock should have inverted colors!
+ *
+ *  Clicking this button is supposed to switch the page background between white and black. However,
+ *  nothing happens when you click it. Fix the problem.
+ *  (Don’t worry about the logic inside handleClick—that part is fine.)
  */
 
-export default function Clock({ time }) {
-  let hours = time.getHours();
-  if (hours >= 0 && hours <= 6) {
-    document.getElementById("time").className = "night";
-  } else {
-    document.getElementById("time").className = "day";
+export default function LightSwitch() {
+  function handleClick() {
+    let bodyStyle = document.body.style;
+    if (bodyStyle.backgroundColor === "black") {
+      bodyStyle.backgroundColor = "white";
+    } else {
+      bodyStyle.backgroundColor = "black";
+    }
   }
-  return <h1 id="time">{time.toLocaleTimeString()}</h1>;
+
+  return <button onClick={handleClick()}>Toggle the lights</button>;
 }

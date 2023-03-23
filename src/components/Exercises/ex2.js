@@ -1,57 +1,45 @@
 /**
- * Two Profile components are rendered side by side with different data. 
- * Press “Collapse” on the first profile, and then “Expand” it.
- *  You’ll notice that both profiles now show the same person. This is a bug.
-
-Find the cause of the bug and fix it.
+ *
+ * This ColorSwitch component renders a button. It’s supposed to change the page color.
+ *  Wire it up to the onChangeColor event handler prop it receives from the parent so that clicking the button changes the color.
+ *  After you do this, notice that clicking the button also increments the page click counter.
+ *  Your colleague who wrote the parent component insists that onChangeColor does not increment any counters.
+ *  What else might be happening? Fix it so that clicking the button only changes the color, and does not increment the counter.
  */
 
-import Panel from "./Panel.js";
-import { getImageUrl } from "./utils.js";
-
-let currentPerson;
-
-export function Profile({ person }) {
-  currentPerson = person;
-  return (
-    <Panel>
-      <Header />
-      <Avatar />
-    </Panel>
-  );
+export default function ColorSwitch({ onChangeColor }) {
+  return <button>Change color</button>;
 }
 
-function Header() {
-  return <h1>{currentPerson.name}</h1>;
-}
-
-function Avatar() {
-  return (
-    <img
-      className="avatar"
-      src={getImageUrl(currentPerson)}
-      alt={currentPerson.name}
-      width={50}
-      height={50}
-    />
-  );
-}
+/*import { useState } from "react";
+import ColorSwitch from "./ColorSwitch.js";
 
 export default function App() {
+  const [clicks, setClicks] = useState(0);
+
+  function handleClickOutside() {
+    setClicks((c) => c + 1);
+  }
+
+  function getRandomLightColor() {
+    let r = 150 + Math.round(100 * Math.random());
+    let g = 150 + Math.round(100 * Math.random());
+    let b = 150 + Math.round(100 * Math.random());
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
+  function handleChangeColor() {
+    let bodyStyle = document.body.style;
+    bodyStyle.backgroundColor = getRandomLightColor();
+  }
+
   return (
-    <>
-      <Profile
-        person={{
-          imageId: "lrWQx8l",
-          name: "Subrahmanyan Chandrasekhar",
-        }}
-      />
-      <Profile
-        person={{
-          imageId: "MK3eW3A",
-          name: "Creola Katherine Johnson",
-        }}
-      />
-    </>
+    <div style={{ width: "100%", height: "100%" }} onClick={handleClickOutside}>
+      <ColorSwitch onChangeColor={handleChangeColor} />
+      <br />
+      <br />
+      <h2>Clicks on the page: {clicks}</h2>
+    </div>
   );
 }
+*/
