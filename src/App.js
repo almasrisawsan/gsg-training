@@ -18,13 +18,13 @@ const App = () => {
 
 export default App;
 
-// Keeping components pure
-//   It minds its own business. It does not change any objects or variables that existed before it was called.
-//   Same inputs, same output. Given the same inputs, a pure function should always return the same result.
-// Installing Modules -> https://github.com/brillout/awesome-react-components // button
-
-// localStorage & sessionStorage
-// Adding event handlers
-// Passing functions as props -> ProductList example
-// exercise -> react-slick
-// Material UI
+// Final Project preparation
+// Passing functions as props with parameters -> example1
+// Prevent Default / Stop Propagation -> exercise -> ex.2 & ex.3
+// exercise -> install and use react-slick
+// State -> example4 ... etc
+// State is isolated -> ex9
+// Hooks—functions starting with use—can only be called at the top level of your components or your own Hooks.
+// You can’t call Hooks inside conditions, loops, or other nested functions
+// state exercise -> ex3
+// localStorage & sessionStorage & Cookies

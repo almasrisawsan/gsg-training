@@ -1,44 +1,19 @@
-// event propagation
-export default function Toolbar() {
-  return (
-    <div
-      className="Toolbar"
-      onClick={() => {
-        alert("You clicked on the toolbar!");
-      }}
-    >
-      <button onClick={() => alert("Playing!")}>Play Movie</button>
-      <button onClick={() => alert("Uploading!")}>Upload Image</button>
-    </div>
-  );
-}
+import { useState } from "react";
 
-//Stop propagation
-/**
- * 
- * function Button({ onClick, children }) {
-  return (
-    <button onClick={e => {
-      e.stopPropagation();
-      onClick();
-    }}>
-      {children}
-    </button>
-  );
-}
+export default function Car() {
+  const [car, setCar] = useState({
+    brand: "Ford",
+    model: "Mustang",
+    year: "1964",
+    color: "red",
+  });
 
-export default function Toolbar() {
   return (
-    <div className="Toolbar" onClick={() => {
-      alert('You clicked on the toolbar!');
-    }}>
-      <Button onClick={() => alert('Playing!')}>
-        Play Movie
-      </Button>
-      <Button onClick={() => alert('Uploading!')}>
-        Upload Image
-      </Button>
-    </div>
+    <>
+      <h1>My {car.brand}</h1>
+      <p>
+        It is a {car.color} {car.model} from {car.year}.
+      </p>
+    </>
   );
 }
- */

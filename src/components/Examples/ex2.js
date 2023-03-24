@@ -1,12 +1,44 @@
-function AlertButton({ message, children }) {
-  return <button onClick={() => alert(message)}>{children}</button>;
+// event propagation
+export default function Toolbar() {
+  return (
+    <div
+      className="Toolbar"
+      onClick={() => {
+        alert("You clicked on the toolbar!");
+      }}
+    >
+      <button onClick={() => alert("Playing!")}>Play Movie</button>
+      <button onClick={() => alert("Uploading!")}>Upload Image</button>
+    </div>
+  );
+}
+
+//Stop propagation
+/**
+ * 
+ * function Button({ onClick, children }) {
+  return (
+    <button onClick={e => {
+      e.stopPropagation();
+      onClick();
+    }}>
+      {children}
+    </button>
+  );
 }
 
 export default function Toolbar() {
   return (
-    <div>
-      <AlertButton message="Playing!">Play Movie</AlertButton>
-      <AlertButton message="Uploading!">Upload Image</AlertButton>
+    <div className="Toolbar" onClick={() => {
+      alert('You clicked on the toolbar!');
+    }}>
+      <Button onClick={() => alert('Playing!')}>
+        Play Movie
+      </Button>
+      <Button onClick={() => alert('Uploading!')}>
+        Upload Image
+      </Button>
     </div>
   );
 }
+ */

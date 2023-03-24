@@ -1,21 +1,18 @@
-export default function App() {
+import { useState } from "react";
+
+function Car() {
+  const [brand, setBrand] = useState("Ford");
+  const [model, setModel] = useState("Mustang");
+  const [year, setYear] = useState("1964");
+  const [color, setColor] = useState("red");
+
   return (
-    <Toolbar
-      onPlayMovie={() => alert("Playing!")}
-      onUploadImage={() => alert("Uploading!")}
-    />
+    <>
+      <h1>My {brand}</h1>
+      <p>
+        It is a {color} {model} from {year}.
+      </p>
+    </>
   );
 }
-
-function Toolbar({ onPlayMovie, onUploadImage }) {
-  return (
-    <div>
-      <Button onClick={onPlayMovie}>Play Movie</Button>
-      <Button onClick={onUploadImage}>Upload Image</Button>
-    </div>
-  );
-}
-
-function Button({ onClick, children }) {
-  return <button onClick={onClick}>{children}</button>;
-}
+export default Car;
