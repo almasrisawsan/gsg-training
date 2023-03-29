@@ -1,19 +1,55 @@
 /**
- *
- *  Clicking this button is supposed to switch the page background between white and black. However,
- *  nothing happens when you click it. Fix the problem.
- *  (Don’t worry about the logic inside handleClick—that part is fine.)
+ * This form has a few bugs. 
+ * Click the button that increases the score a few times. 
+ * Notice that it does not increase. Then edit the first name, 
+ * and notice that the score has suddenly “caught up” with your changes. 
+ * Finally, edit the last name, 
+ * and notice that the score has disappeared completely.
+
+Your task is to fix all of these bugs. 
+As you fix them, explain why each of them happens.
  */
 
-export default function LightSwitch() {
-  function handleClick() {
-    let bodyStyle = document.body.style;
-    if (bodyStyle.backgroundColor === "black") {
-      bodyStyle.backgroundColor = "white";
-    } else {
-      bodyStyle.backgroundColor = "black";
-    }
+import { useState } from "react";
+
+export default function Scoreboard() {
+  const [player, setPlayer] = useState({
+    firstName: "Ranjani",
+    lastName: "Shettar",
+    score: 10,
+  });
+
+  function handlePlusClick() {
+    player.score++;
   }
 
-  return <button onClick={handleClick()}>Toggle the lights</button>;
+  function handleFirstNameChange(e) {
+    setPlayer({
+      ...player,
+      firstName: e.target.value,
+    });
+  }
+
+  function handleLastNameChange(e) {
+    setPlayer({
+      lastName: e.target.value,
+    });
+  }
+
+  return (
+    <>
+      <label>
+        Score: <b>{player.score}</b>{" "}
+        <button onClick={handlePlusClick}>+1</button>
+      </label>
+      <label>
+        First name:
+        <input value={player.firstName} onChange={handleFirstNameChange} />
+      </label>
+      <label>
+        Last name:
+        <input value={player.lastName} onChange={handleLastNameChange} />
+      </label>
+    </>
+  );
 }

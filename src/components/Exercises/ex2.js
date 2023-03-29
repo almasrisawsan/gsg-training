@@ -1,45 +1,135 @@
 /**
- *
- * This ColorSwitch component renders a button. It’s supposed to change the page color.
- *  Wire it up to the onChangeColor event handler prop it receives from the parent so that clicking the button changes the color.
- *  After you do this, notice that clicking the button also increments the page click counter.
- *  Your colleague who wrote the parent component insists that onChangeColor does not increment any counters.
- *  What else might be happening? Fix it so that clicking the button only changes the color, and does not increment the counter.
+ * There is a draggable box on a static background. 
+ * You can change the box’s color using the select input.
+
+But there is a bug. 
+If you move the box first, 
+and then change its color, 
+the background (which isn’t supposed to move!) will “jump” to the box position.
+ But this should not happen: the Background’s position prop is set to initialPosition,
+  which is { x: 0, y: 0 }. Why is the background moving after the color change?
+  Find the bug and fix it.
  */
 
-export default function ColorSwitch({ onChangeColor }) {
-  return <button>Change color</button>;
-}
+import { useState } from "react";
 
-/*import { useState } from "react";
-import ColorSwitch from "./ColorSwitch.js";
+const initialPosition = {
+  x: 0,
+  y: 0,
+};
 
-export default function App() {
-  const [clicks, setClicks] = useState(0);
+export default function Canvas() {
+  const [shape, setShape] = useState({
+    color: "orange",
+    position: initialPosition,
+  });
 
-  function handleClickOutside() {
-    setClicks((c) => c + 1);
+  function handleMove(dx, dy) {
+    shape.position.x += dx;
+    shape.position.y += dy;
   }
 
-  function getRandomLightColor() {
-    let r = 150 + Math.round(100 * Math.random());
-    let g = 150 + Math.round(100 * Math.random());
-    let b = 150 + Math.round(100 * Math.random());
-    return `rgb(${r}, ${g}, ${b})`;
-  }
-
-  function handleChangeColor() {
-    let bodyStyle = document.body.style;
-    bodyStyle.backgroundColor = getRandomLightColor();
+  function handleColorChange(e) {
+    setShape({
+      ...shape,
+      color: e.target.value,
+    });
   }
 
   return (
-    <div style={{ width: "100%", height: "100%" }} onClick={handleClickOutside}>
-      <ColorSwitch onChangeColor={handleChangeColor} />
-      <br />
-      <br />
-      <h2>Clicks on the page: {clicks}</h2>
-    </div>
+    <>
+      <select value={shape.color} onChange={handleColorChange}>
+        <option value="orange">orange</option>
+        <option value="lightpink">lightpink</option>
+        <option value="aliceblue">aliceblue</option>
+      </select>
+      <Background position={initialPosition} />
+      <Box color={shape.color} position={shape.position} onMove={handleMove}>
+        Drag me!
+      </Box>
+    </>
   );
 }
-*/
+
+//
+/**
+ * import { useState } from 'react';
+
+export default function Box({
+  children,
+  color,
+  position,
+  onMove
+}) {
+  const [
+    lastCoordinates,
+    setLastCoordinates
+  ] = useState(null);
+
+  function handlePointerDown(e) {
+    e.target.setPointerCapture(e.pointerId);
+    setLastCoordinates({
+      x: e.clientX,
+      y: e.clientY,
+    });
+  }
+
+  function handlePointerMove(e) {
+    if (lastCoordinates) {
+      setLastCoordinates({
+        x: e.clientX,
+        y: e.clientY,
+      });
+      const dx = e.clientX - lastCoordinates.x;
+      const dy = e.clientY - lastCoordinates.y;
+      onMove(dx, dy);
+    }
+  }
+
+  function handlePointerUp(e) {
+    setLastCoordinates(null);
+  }
+
+  return (
+    <div
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      style={{
+        width: 100,
+        height: 100,
+        cursor: 'grab',
+        backgroundColor: color,
+        position: 'absolute',
+        border: '1px solid black',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        transform: `translate(
+          ${position.x}px,
+          ${position.y}px
+        )`,
+      }}
+    >{children}</div>
+  );
+}
+
+
+export default function Background({
+  position
+}) {
+  return (
+    <div style={{
+      position: 'absolute',
+      transform: `translate(
+        ${position.x}px,
+        ${position.y}px
+      )`,
+      width: 250,
+      height: 250,
+      backgroundColor: 'rgba(200, 200, 0, 0.2)',
+    }} />
+  );
+};
+
+ */
