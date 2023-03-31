@@ -1,65 +1,29 @@
-import { useImmer } from "use-immer";
+import { useState } from "react";
 
-export default function Form() {
-  const [person, updatePerson] = useImmer({
-    name: "Niki de Saint Phalle",
-    artwork: {
-      title: "Blue Nana",
-      city: "Hamburg",
-      image: "https://i.imgur.com/Sd1AgUOm.jpg",
-    },
-  });
+let nextId = 3;
+const initialList = [
+  { id: 0, title: "Big Bellies" },
+  { id: 1, title: "Lunar Landscape" },
+  { id: 2, title: "Terracotta Army" },
+];
 
-  function handleNameChange(e) {
-    updatePerson((draft) => {
-      draft.name = e.target.value;
-    });
-  }
+export default function List() {
+  const [list, setList] = useState(initialList);
 
-  function handleTitleChange(e) {
-    updatePerson((draft) => {
-      draft.artwork.title = e.target.value;
-    });
-  }
-
-  function handleCityChange(e) {
-    updatePerson((draft) => {
-      draft.artwork.city = e.target.value;
-    });
-  }
-
-  function handleImageChange(e) {
-    updatePerson((draft) => {
-      draft.artwork.image = e.target.value;
-    });
+  function handleClick() {
+    const nextList = [...list];
+    nextList.reverse();
+    setList(nextList);
   }
 
   return (
     <>
-      <label>
-        Name:
-        <input value={person.name} onChange={handleNameChange} />
-      </label>
-      <label>
-        Title:
-        <input value={person.artwork.title} onChange={handleTitleChange} />
-      </label>
-      <label>
-        City:
-        <input value={person.artwork.city} onChange={handleCityChange} />
-      </label>
-      <label>
-        Image:
-        <input value={person.artwork.image} onChange={handleImageChange} />
-      </label>
-      <p>
-        <i>{person.artwork.title}</i>
-        {" by "}
-        {person.name}
-        <br />
-        (located in {person.artwork.city})
-      </p>
-      <img src={person.artwork.image} alt={person.artwork.title} />
+      <button onClick={handleClick}>Reverse</button>
+      <ul>
+        {list.map((artwork) => (
+          <li key={artwork.id}>{artwork.title}</li>
+        ))}
+      </ul>
     </>
   );
 }

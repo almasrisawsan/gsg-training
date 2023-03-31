@@ -1,32 +1,36 @@
-import "./App.css";
-import LeftColumn from "./components/LeftColumn";
-import RightColumn from "./components/RightColumn";
-import Shop from "./components/Shop";
-import Badge from "./components/Badge";
-import Label from "./components/Label";
-import Button from "react-bootstrap/Button";
+import { useState } from "react";
 
-const App = () => {
+export default function List() {
+  const [name, setName] = useState("");
+  const [artists, setArtists] = useState([]);
+
+  const handleAddArtist = () => {
+    setArtists((prev) => [...prev, { name: name }]);
+  };
+
+  console.log(artists);
   return (
     <>
-      <Button variant="primary" size="lg" disabled>
-        Primary button
-      </Button>{" "}
+      <h1>Inspiring sculptors:</h1>
+      <input value={name} onChange={(e) => setName(e.target.value)} />
+      <button onClick={handleAddArtist}>Add</button>
+      <ul>
+        {artists.map((artist, index) => (
+          <li key={index}>{artist.name}</li>
+        ))}
+      </ul>
     </>
   );
-};
+}
 
-export default App;
-
-// Final Project preparation
-// Passing functions as props with parameters -> example1
-// Prevent Default / Stop Propagation
-// exercise -> ex.2 & ex.3
-// exercise -> install and use react-slick
-// State -> example4 ... etc
-// State is isolated -> ex9
-// Hooks—functions starting with use—can only be called at the top level of your components or your own Hooks.
-// You can’t call Hooks inside conditions, loops, or other nested functions
-// state exercise -> ex3,ex4
+// State is isolated -> exmp1
+// Exercises -> ex1.js, ex2.js, ex3.js
+// Removing from array -> exmp2
+// Transforming an array -> exmp3
+// Replacing item in array -> exmp4
+// Inserting into array -> exmp5
+// Making changes to array -> exmp6
+// Updating objects in array -> fix the issue -> exmp7
+// Installing Axios and using API's to submit a form
 // localStorage & sessionStorage & Cookies
 // Sign up & Login

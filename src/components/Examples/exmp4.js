@@ -1,41 +1,37 @@
 import { useState } from "react";
 
-export default function Form() {
-  const [person, setPerson] = useState({
-    firstName: "Barbara",
-    lastName: "Hepworth",
-    email: "bhepworth@sculpture.com",
-  });
+let initialCounters = [0, 0, 0];
 
-  function handleFirstNameChange(e) {
-    person.firstName = e.target.value;
-  }
+export default function CounterList() {
+  const [counters, setCounters] = useState(initialCounters);
 
-  function handleLastNameChange(e) {
-    person.lastName = e.target.value;
-  }
-
-  function handleEmailChange(e) {
-    person.email = e.target.value;
+  function handleIncrementClick(index) {
+    const nextCounters = counters.map((c, i) => {
+      if (i === index) {
+        // Increment the clicked counter
+        return c + 1;
+      } else {
+        // The rest haven't changed
+        return c;
+      }
+    });
+    setCounters(nextCounters);
   }
 
   return (
-    <>
-      <label>
-        First name:
-        <input value={person.firstName} onChange={handleFirstNameChange} />
-      </label>
-      <label>
-        Last name:
-        <input value={person.lastName} onChange={handleLastNameChange} />
-      </label>
-      <label>
-        Email:
-        <input value={person.email} onChange={handleEmailChange} />
-      </label>
-      <p>
-        {person.firstName} {person.lastName} ({person.email})
-      </p>
-    </>
+    <ul>
+      {counters.map((counter, i) => (
+        <li key={i}>
+          {counter}
+          <button
+            onClick={() => {
+              handleIncrementClick(i);
+            }}
+          >
+            +1
+          </button>
+        </li>
+      ))}
+    </ul>
   );
 }

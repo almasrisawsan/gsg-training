@@ -1,33 +1,48 @@
 import { useState } from "react";
-export default function MovingDot() {
-  const [position, setPosition] = useState({
-    x: 0,
-    y: 0,
-  });
+
+let initialShapes = [
+  { id: 0, type: "circle", x: 50, y: 100 },
+  { id: 1, type: "square", x: 150, y: 100 },
+  { id: 2, type: "circle", x: 250, y: 100 },
+];
+
+export default function ShapeEditor() {
+  const [shapes, setShapes] = useState(initialShapes);
+
+  function handleClick() {
+    const nextShapes = shapes.map((shape) => {
+      if (shape.type === "square") {
+        // No change
+        return shape;
+      } else {
+        // Return a new circle 50px below
+        return {
+          ...shape,
+          y: shape.y + 50,
+        };
+      }
+    });
+    // Re-render with the new array
+    setShapes(nextShapes);
+  }
+
   return (
-    <div
-      onPointerMove={(e) => {
-        position.x = e.clientX;
-        position.y = e.clientY;
-      }}
-      style={{
-        position: "relative",
-        width: "100vw",
-        height: "100vh",
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          backgroundColor: "red",
-          borderRadius: "50%",
-          transform: `translate(${position.x}px, ${position.y}px)`,
-          left: -10,
-          top: -10,
-          width: 20,
-          height: 20,
-        }}
-      />
-    </div>
+    <>
+      <button onClick={handleClick}>Move circles down!</button>
+      {shapes.map((shape) => (
+        <div
+          key={shape.id}
+          style={{
+            background: "purple",
+            position: "absolute",
+            left: shape.x,
+            top: shape.y,
+            borderRadius: shape.type === "circle" ? "50%" : "",
+            width: 20,
+            height: 20,
+          }}
+        />
+      ))}
+    </>
   );
 }

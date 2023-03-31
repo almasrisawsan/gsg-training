@@ -1,40 +1,31 @@
 import { useState } from "react";
 
-export default function MyForm() {
-  const [inputs, setInputs] = useState({});
+let initialArtists = [
+  { id: 0, name: "Marta Colvin Andrade" },
+  { id: 1, name: "Lamidi Olonade Fakeye" },
+  { id: 2, name: "Louise Nevelson" },
+];
 
-  const handleChange = (event) => {
-    // const name = event.target.name;
-    // const value = event.target.value;
-    // setInputs((values) => ({ ...values, [name]: value }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert(inputs);
-  };
+export default function List() {
+  const [artists, setArtists] = useState(initialArtists);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Enter your name:
-        <input
-          type="text"
-          name="username"
-          value={inputs.username || ""}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Enter your age:
-        <input
-          type="number"
-          name="age"
-          value={inputs.age || ""}
-          onChange={handleChange}
-        />
-      </label>
-      <input type="submit" />
-    </form>
+    <>
+      <h1>Inspiring sculptors:</h1>
+      <ul>
+        {artists.map((artist) => (
+          <li key={artist.id}>
+            {artist.name}{" "}
+            <button
+              onClick={() => {
+                setArtists(artists.filter((a) => a.id !== artist.id));
+              }}
+            >
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
