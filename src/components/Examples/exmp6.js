@@ -10,12 +10,7 @@ const initialList = [
 export default function List() {
   const [list, setList] = useState(initialList);
 
-  function handleClick() {
-    // reverse items in array
-    // const nextList = [...list];
-    // nextList.reverse();
-    // setList(nextList);
-  }
+  function handleClick() {}
 
   return (
     <>

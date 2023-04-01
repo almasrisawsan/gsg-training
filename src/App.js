@@ -1,33 +1,35 @@
 import { useState } from "react";
 
-const initialItems = [
-  { title: "pretzels", id: 0 },
-  { title: "crispy seaweed", id: 1 },
-  { title: "granola bar", id: 2 },
+let nextId = 3;
+const initialArtists = [
+  { id: 0, name: "Marta Colvin Andrade" },
+  { id: 1, name: "Lamidi Olonade Fakeye" },
+  { id: 2, name: "Louise Nevelson" },
 ];
 
-export default function Menu() {
-  const [items, setItems] = useState(initialItems);
-  const [selectedItem, setSelectedItem] = useState(items[0]);
+export default function List() {
+  const [name, setName] = useState("");
+  const [artists, setArtists] = useState(initialArtists);
+
+  function handleClick() {
+    const newArtists = [...artists];
+    newArtists.splice(1, 0, { id: nextId, name: name });
+    console.log(newArtists);
+    setArtists(newArtists);
+    nextId++;
+    setName("");
+  }
 
   return (
     <>
-      <h2>What's your travel snack?</h2>
+      <h1>Inspiring sculptors:</h1>
+      <input value={name} onChange={(e) => setName(e.target.value)} />
+      <button onClick={handleClick}>Insert</button>
       <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            {item.title}{" "}
-            <button
-              onClick={() => {
-                setSelectedItem(item);
-              }}
-            >
-              Choose
-            </button>
-          </li>
+        {artists.map((artist) => (
+          <li key={artist.id}>{artist.name}</li>
         ))}
       </ul>
-      <p>You picked {selectedItem.title}.</p>
     </>
   );
 }

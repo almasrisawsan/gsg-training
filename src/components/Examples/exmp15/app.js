@@ -1,6 +1,6 @@
 /**
  * Now let’s say you want to add a button to delete a place you’ve already visited.
- *  How would you go about it? Updating nested state involves making copies of objects all the way up from the part that changed. 
+ * How would you go about it? Updating nested state involves making copies of objects all the way up from the part that changed. 
  * Deleting a deeply nested place would involve copying its entire parent place chain. 
  * Such code can be very verbose.
 
