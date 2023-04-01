@@ -259,6 +259,17 @@ export const initialTravelPlan = {
 };
 
 /**
+ * Now that the state is “flat” (also known as “normalized”),
+ *  updating nested items becomes easier.
+
+In order to remove a place now, you only need to update two levels of state:
+
+The updated version of its parent place should exclude the removed ID from its childIds array.
+The updated version of the root “table” object should include the updated version of the parent place.
+Here is an example of how you could go about it:
+ */
+
+/**
  * import { useState } from 'react';
 import { initialTravelPlan } from './places.js';
 

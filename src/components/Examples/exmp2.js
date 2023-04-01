@@ -18,7 +18,7 @@ export default function List() {
             {artist.name}{" "}
             <button
               onClick={() => {
-                setArtists(artists.filter((a) => a.id !== artist.id));
+                // delete selected item (filter)
               }}
             >
               Delete

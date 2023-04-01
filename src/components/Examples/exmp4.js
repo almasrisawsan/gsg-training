@@ -6,16 +6,17 @@ export default function CounterList() {
   const [counters, setCounters] = useState(initialCounters);
 
   function handleIncrementClick(index) {
-    const nextCounters = counters.map((c, i) => {
-      if (i === index) {
-        // Increment the clicked counter
-        return c + 1;
-      } else {
-        // The rest haven't changed
-        return c;
-      }
-    });
-    setCounters(nextCounters);
+    // each click should increase the index by 1
+    // const nextCounters = counters.map((c, i) => {
+    //   if (i === index) {
+    //     // Increment the clicked counter
+    //     return c + 1;
+    //   } else {
+    //     // The rest haven't changed
+    //     return c;
+    //   }
+    // });
+    // setCounters(nextCounters);
   }
 
   return (

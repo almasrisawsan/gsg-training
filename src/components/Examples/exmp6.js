@@ -11,9 +11,10 @@ export default function List() {
   const [list, setList] = useState(initialList);
 
   function handleClick() {
-    const nextList = [...list];
-    nextList.reverse();
-    setList(nextList);
+    // reverse items in array
+    // const nextList = [...list];
+    // nextList.reverse();
+    // setList(nextList);
   }
 
   return (
