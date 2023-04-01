@@ -1,38 +1,62 @@
+import React from "react";
 import { useState } from "react";
+import axios from "axios";
 
-let nextId = 3;
-const initialArtists = [
-  { id: 0, name: "Marta Colvin Andrade" },
-  { id: 1, name: "Lamidi Olonade Fakeye" },
-  { id: 2, name: "Louise Nevelson" },
-];
+const App = () => {
+  const [user, setUser] = useState({
+    fName: "",
+    lName: "",
+    age: "",
+  });
 
-export default function List() {
-  const [name, setName] = useState("");
-  const [artists, setArtists] = useState(initialArtists);
+  const handleInputChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setUser({ ...user, [name]: value });
+  };
 
-  function handleClick() {
-    const newArtists = [...artists];
-    newArtists.splice(1, 0, { id: nextId, name: name });
-    console.log(newArtists);
-    setArtists(newArtists);
-    nextId++;
-    setName("");
-  }
-
+  const submitUser = async (event) => {
+    const newUser = {
+      firstName: user.fName,
+      lastName: user.lName,
+      age: user.age,
+    };
+    console.log(newUser);
+    const response = await axios.post(
+      "https://dummyjson.com/users/add",
+      newUser
+    );
+    console.log(response);
+  };
   return (
     <>
-      <h1>Inspiring sculptors:</h1>
-      <input value={name} onChange={(e) => setName(e.target.value)} />
-      <button onClick={handleClick}>Insert</button>
-      <ul>
-        {artists.map((artist) => (
-          <li key={artist.id}>{artist.name}</li>
-        ))}
-      </ul>
+      <input
+        value={user.firstName}
+        type="text"
+        name="fName"
+        placeholder="First Name"
+        onChange={handleInputChange}
+      ></input>
+      <input
+        value={user.lastName}
+        type="text"
+        name="lName"
+        placeholder="Last Name"
+        onChange={handleInputChange}
+      ></input>
+      <input
+        value={user.age}
+        type="text"
+        name="age"
+        placeholder="Age"
+        onChange={handleInputChange}
+      ></input>
+      <button onClick={submitUser}>Submit</button>
     </>
   );
-}
+};
+
+export default App;
 
 // State is isolated -> exmp1,exmp17
 // Removing from array -> exmp2
