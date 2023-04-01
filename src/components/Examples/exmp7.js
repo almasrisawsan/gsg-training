@@ -11,17 +11,19 @@ export default function BucketList() {
   const [myList, setMyList] = useState(initialList);
   const [yourList, setYourList] = useState(initialList);
 
-  function handleToggleMyList(artworkId, nextSeen) {
+  function handleToggleMyList(artworkId, nextSeen, index) {
     const myNextList = [...myList];
     const artwork = myNextList.find((a) => a.id === artworkId);
-    artwork.seen = nextSeen;
+    const newArtwork = { ...artwork, seen: nextSeen };
+    myNextList.splice(index, 1, newArtwork);
     setMyList(myNextList);
   }
 
-  function handleToggleYourList(artworkId, nextSeen) {
+  function handleToggleYourList(artworkId, nextSeen, index) {
     const yourNextList = [...yourList];
     const artwork = yourNextList.find((a) => a.id === artworkId);
-    artwork.seen = nextSeen;
+    const newArtwork = { ...artwork, seen: nextSeen };
+    yourNextList.splice(index, 1, newArtwork);
     setYourList(yourNextList);
   }
 
@@ -46,7 +48,7 @@ function ItemList({ artworks, onToggle }) {
               type="checkbox"
               checked={artwork.seen}
               onChange={(e) => {
-                onToggle(artwork.id, e.target.checked);
+                onToggle(artwork.id, e.target.checked, index);
               }}
             />
             {artwork.title}
