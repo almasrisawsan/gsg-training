@@ -41,7 +41,7 @@ export default function BucketList() {
 function ItemList({ artworks, onToggle }) {
   return (
     <ul>
-      {artworks.map((artwork) => (
+      {artworks.map((artwork, index) => (
         <li key={artwork.id}>
           <label>
             <input
