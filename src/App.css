@@ -46,3 +46,7 @@
 .counter.hover {
   background-color: red;
 }
+
+.counter.fancy {
+  border-color: 5px solid blue;
+}
