@@ -1,73 +1,62 @@
-import React from "react";
 import { useState } from "react";
-import axios from "axios";
 
-const App = () => {
-  const [user, setUser] = useState({
-    fName: "",
-    lName: "",
-    age: "",
-  });
+function Panel({ title, children, setActive, active }) {
+  return (
+    <section className="panel">
+      <h3>{title}</h3>
+      {active ? <p>{children}</p> : <button onClick={setActive}>Show</button>}
+    </section>
+  );
+}
 
-  const handleInputChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setUser({ ...user, [name]: value });
-  };
+export default function Accordion() {
+  const [isActive, setIsActive] = useState(null);
 
-  const submitUser = async (event) => {
-    const newUser = {
-      firstName: user.fName,
-      lastName: user.lName,
-      age: user.age,
-    };
-    console.log(newUser);
-    const response = await axios.post(
-      "https://dummyjson.com/users/add",
-      newUser
-    );
-    console.log(response);
-  };
   return (
     <>
-      <input
-        value={user.firstName}
-        type="text"
-        name="fName"
-        placeholder="First Name"
-        onChange={handleInputChange}
-      ></input>
-      <input
-        value={user.lastName}
-        type="text"
-        name="lName"
-        placeholder="Last Name"
-        onChange={handleInputChange}
-      ></input>
-      <input
-        value={user.age}
-        type="text"
-        name="age"
-        placeholder="Age"
-        onChange={handleInputChange}
-      ></input>
-      <button onClick={submitUser}>Submit</button>
+      <h2>Almaty, Kazakhstan</h2>
+      <Panel
+        title="About"
+        active={isActive === 1}
+        setActive={() => setIsActive(1)}
+      >
+        With a population of about 2 million, Almaty is Kazakhstan's largest
+        city. From 1929 to 1997, it was its capital city.
+      </Panel>
+      <Panel
+        title="Etymology"
+        active={isActive === 2}
+        setActive={() => setIsActive(2)}
+      >
+        The name comes from <span lang="kk-KZ">алма</span>, the Kazakh word for
+        "apple" and is often translated as "full of apples". In fact, the region
+        surrounding Almaty is thought to be the ancestral home of the apple, and
+        the wild <i lang="la">Malus sieversii</i> is considered a likely
+        candidate for the ancestor of the modern domestic apple.
+      </Panel>
+      <Panel
+        title="Etymology"
+        active={isActive === 3}
+        setActive={() => setIsActive(3)}
+      >
+        surrounding Almaty is thought to be the ancestral home of the apple, and
+        the wild <i lang="la">Malus sieversii</i> is considered a likely
+        candidate for the ancestor of the modern domestic apple.
+      </Panel>
     </>
   );
-};
+}
 
-export default App;
+/**
+ * <Panel
+        title="Etymology"
+        isActive={activeIndex === 1}
+        onShow={() => setActiveIndex(1)}
+      >
+ */
 
-// State is isolated -> exmp1,exmp17
-// Removing from array -> exmp2
-// Transforming an array -> exmp3
-// Replacing item in array -> exmp4
-// Inserting into array -> exmp5
-// Making changes to array -> exmp6
-// Exercises -> ex1.js, ex2.js, ex3.js
-// Updating objects in array -> fix the issue -> exmp7
 // Reacting to input with state  -> exmp8, go to exp1 before
-// Exercises -> ex4.js, ex5.js
+// Exercises ->  ex5.js
 // Choosing the state structure ->
 // -- Group related state -> exmp10
 // -- Avoid contradictions in state -> exmp11
