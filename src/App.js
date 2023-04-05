@@ -1,59 +1,22 @@
-import { useState } from "react";
+import Router from "./route";
 
-function Panel({ title, children, setActive, active }) {
-  return (
-    <section className="panel">
-      <h3>{title}</h3>
-      {active ? <p>{children}</p> : <button onClick={setActive}>Show</button>}
-    </section>
-  );
-}
-
-export default function Accordion() {
-  const [isActive, setIsActive] = useState(null);
-
+export default function App() {
   return (
     <>
-      <h2>Almaty, Kazakhstan</h2>
-      <Panel
-        title="About"
-        active={isActive === 1}
-        setActive={() => setIsActive(1)}
-      >
-        With a population of about 2 million, Almaty is Kazakhstan's largest
-        city. From 1929 to 1997, it was its capital city.
-      </Panel>
-      <Panel
-        title="Etymology"
-        active={isActive === 2}
-        setActive={() => setIsActive(2)}
-      >
-        The name comes from <span lang="kk-KZ">алма</span>, the Kazakh word for
-        "apple" and is often translated as "full of apples". In fact, the region
-        surrounding Almaty is thought to be the ancestral home of the apple, and
-        the wild <i lang="la">Malus sieversii</i> is considered a likely
-        candidate for the ancestor of the modern domestic apple.
-      </Panel>
-      <Panel
-        title="Etymology"
-        active={isActive === 3}
-        setActive={() => setIsActive(3)}
-      >
-        surrounding Almaty is thought to be the ancestral home of the apple, and
-        the wild <i lang="la">Malus sieversii</i> is considered a likely
-        candidate for the ancestor of the modern domestic apple.
-      </Panel>
+      <h4>This component exists in all pages</h4>
+      <Router />
     </>
   );
 }
 
-/**
- * <Panel
-        title="Etymology"
-        isActive={activeIndex === 1}
-        onShow={() => setActiveIndex(1)}
-      >
- */
+// React Router fundamentals
+// npm i -D react-router-dom ------> will add it to devDependencies
+// Basic router --> basic.js
+// Add "pages" folder to host all pages and link routes
+// Nested routes -> nested
+// Use Layouts in router --> nested
+// Using outlet ---> outlet
+// URL parameters --> params
 
 // Reacting to input with state  -> exmp8, go to exp1 before
 // Exercises ->  ex5.js
