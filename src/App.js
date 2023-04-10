@@ -1,10 +1,12 @@
 import Router from "./route";
+import { CookiesProvider } from 'react-cookie';
 
 export default function App() {
   return (
     <>
-      <h4>This component exists in all pages</h4>
-      <Router />
+      <CookiesProvider>
+        <Router />
+      </CookiesProvider>
     </>
   );
 }
@@ -17,6 +19,13 @@ export default function App() {
 // Use Layouts in router --> nested
 // Using outlet ---> outlet
 // URL parameters --> params
+
+// Link to a page
+// Session storage
+// Local Storage
+// Cookies
+// Login form
+// Use access token in authorization
 
 // Reacting to input with state  -> exmp8, go to exp1 before
 // Exercises ->  ex5.js
