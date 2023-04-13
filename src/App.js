@@ -1,5 +1,5 @@
 import Router from "./route";
-import { CookiesProvider } from 'react-cookie';
+import { CookiesProvider } from "react-cookie";
 
 export default function App() {
   return (
@@ -11,21 +11,12 @@ export default function App() {
   );
 }
 
-// React Router fundamentals
-// npm i -D react-router-dom ------> will add it to devDependencies
-// Basic router --> basic.js
-// Add "pages" folder to host all pages and link routes
-// Nested routes -> nested
-// Use Layouts in router --> nested
-// Using outlet ---> outlet
-// URL parameters --> params
-
-// Link to a page
-// Session storage
-// Local Storage
-// Cookies
-// Login form
-// Use access token in authorization
+// Login example
+// Save token in cookies
+// Get authorized user data and adding headers in axios body
+// Axios baseUrl
+// Axios interceptors
+// Protected routes
 
 // Reacting to input with state  -> exmp8, go to exp1 before
 // Exercises ->  ex5.js
