@@ -1,10 +1,13 @@
 import { useCookies } from "react-cookie";
 import axios from "../../axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function User() {
   const [cookies] = useCookies(["token"]);
   const [user, setUser] = useState({});
+  const navigate = useNavigate();
+
   const getUserData = async () => {
     try {
       const results = await axios.get("/auth/profile");
@@ -18,12 +21,18 @@ function User() {
     } catch (error) {}
   };
 
+  const userLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   const { name, role } = user;
   return (
     <div>
       <button onClick={getUserData}>Get user data</button>
       <h2>Name: {name}</h2>
       <h2>Role: {role}</h2>
+      <button onClick={userLogout}>Logout</button>
     </div>
   );
 }

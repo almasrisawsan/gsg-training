@@ -1,14 +1,15 @@
 import { useState } from "react";
 import axios from "../../axios";
 import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
   const [error, setError] = useState("");
-  const [cookies, setCookie] = useCookies(["token"]);
 
   const handleUserData = (event) => {
     const name = event.target.name;
@@ -27,8 +28,8 @@ const Login = () => {
         data: { access_token },
       } = results;
 
-      //setCookie("token", access_token, { path: "/" });
       localStorage.setItem("token", access_token);
+      navigate("/user");
     } catch (error) {
       const {
         response: { status },

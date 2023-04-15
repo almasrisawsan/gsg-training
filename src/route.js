@@ -8,14 +8,29 @@ import {
 } from "react-router-dom";
 import Login from "./pages/Login";
 import User from "./pages/User";
+import Guard, { LoginGuard } from "./pages/Guard";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<h2>Home page </h2>} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/user" element={<User />} />
+        <Route
+          path="/login"
+          element={
+            <LoginGuard>
+              <Login />
+            </LoginGuard>
+          }
+        />
+        <Route
+          path="/user"
+          element={
+            <Guard>
+              <User />
+            </Guard>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
