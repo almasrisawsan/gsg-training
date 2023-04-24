@@ -1,13 +1,12 @@
 import { useState } from "react";
+function MyTextField() {
+  const [text, setText] = useState("");
+
+  return <input value={text} onChange={(e) => setText(e.target.value)} />;
+}
 
 export default function MyComponent() {
   const [counter, setCounter] = useState(0);
-
-  function MyTextField() {
-    const [text, setText] = useState("");
-
-    return <input value={text} onChange={(e) => setText(e.target.value)} />;
-  }
 
   return (
     <>

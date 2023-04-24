@@ -12,7 +12,7 @@ function App() {
 export default App;
 
 // Protected routes
-// exercise -> create 3 pages and router
+// exercise -> create 3 pages and router -> Login , Sign Up, Home page
 // How to use SASS to styles components -> variables, imports
 // Back to state
 // Choosing the state structure ->

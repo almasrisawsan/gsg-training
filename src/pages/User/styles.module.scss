@@ -1,0 +1,16 @@
+$color: "red";
+
+.mainWrapper {
+  .mainContainer {
+    .btn1 {
+    }
+    h2 {
+      color: $color;
+      &.role {
+        color: black;
+      }
+    }
+  }
+  .btn2 {
+  }
+}

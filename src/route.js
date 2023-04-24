@@ -9,12 +9,13 @@ import {
 import Login from "./pages/Login";
 import User from "./pages/User";
 import Guard, { LoginGuard } from "./pages/Guard";
+import HomePage from "./pages/HomePage";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<h2>Home page </h2>} />
+        <Route path="/" element={<HomePage />} />
         <Route
           path="/login"
           element={

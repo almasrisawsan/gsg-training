@@ -2,6 +2,7 @@ import { useCookies } from "react-cookie";
 import axios from "../../axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "./styles.module.scss";
 
 function User() {
   const [cookies] = useCookies(["token"]);
@@ -28,11 +29,19 @@ function User() {
 
   const { name, role } = user;
   return (
-    <div>
-      <button onClick={getUserData}>Get user data</button>
-      <h2>Name: {name}</h2>
-      <h2>Role: {role}</h2>
-      <button onClick={userLogout}>Logout</button>
+    <div className={styles.mainWrapper}>
+      <div className={styles.mainContainer}>
+        <button className={styles.btn1} onClick={getUserData}>
+          Get user data
+        </button>
+        <h2 className={styles.name}>Name: {name}</h2>
+        <h2 className={styles.role}>Role: {role}</h2>
+        <h2>Hello</h2>
+        <button onClick={userLogout}>Logout</button>
+      </div>
+      <button className={styles.btn2} onClick={getUserData}>
+        Get user data
+      </button>
     </div>
   );
 }
