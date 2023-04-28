@@ -15,7 +15,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage title="Home Page" />} />
         <Route
           path="/login"
           element={
