@@ -1,5 +1,7 @@
 import { forwardRef, useRef } from "react";
 
+/**Let's try first without forward refs */
+
 const MyInput = forwardRef((props, ref) => {
   return <input {...props} ref={ref} />;
 });

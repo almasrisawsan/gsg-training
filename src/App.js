@@ -11,9 +11,6 @@ function App() {
 
 export default App;
 
-// Class components -> exmp5
-// React memo -> exmp1
-// React memo --> has to do with props but not it's own state --> exmp2
 // New Hook -> useMemo
 // Usage:
 // Skipping expensive calculations -> exmp3
@@ -23,4 +20,23 @@ export default App;
 // useRef to manipulate dom elements -> exmp7
 // scroll to image -> exmp8
 // Play Video -> exmp9
+// exercises -> ex1, ex2, ex3, ex4
 // Forward Ref -> exmp10
+// in Ref's -> avoid changing DOM elements managed by React -> exmp11
+// exercises -> ex5, ex6, ex7, ex8
+// useEffect
+/**
+ * useEffect(() => {
+  // This runs after every render
+}); ----> exmp13
+
+useEffect(() => {
+  // This runs only on mount (when the component appears)
+}, []); ---> exmp14
+
+useEffect(() => {
+  // This runs on mount *and also* if either a or b have changed since the last render
+}, [a, b]); ----> exmp15
+ */
+// usage:
+// 1- Connecting to external system -> exmp12

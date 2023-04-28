@@ -1,49 +1,44 @@
-//Convert to functional component
+/**
+ * Type a message and click “Send”.
+ * You will notice there is a three second delay before you see the “Sent!” alert.
+ * During this delay, you can see an “Undo” button.
+ * Click it. This “Undo” button is supposed to stop the “Sent!”
+ * message from appearing. It does this by calling clearTimeout for the timeout ID saved during handleSend.
+ * However, even after “Undo” is clicked, the “Sent!” message still appears.
+ * Find why it doesn’t work, and fix it.
+ */
 
-import React, { useState } from "react";
+import { useState } from "react";
 
-const Car = (props) => {
-  const [car, setCar] = useState({
-    brand: "Ford",
-    model: "Mustang",
-    color: "red",
-    year: 1964,
-  });
+export default function Chat() {
+  const [text, setText] = useState("");
+  const [isSending, setIsSending] = useState(false);
+  let timeoutID = null;
 
-  const { brand, model, color, year } = car;
+  function handleSend() {
+    setIsSending(true);
+    timeoutID = setTimeout(() => {
+      alert("Sent!");
+      setIsSending(false);
+    }, 3000);
+  }
+
+  function handleUndo() {
+    setIsSending(false);
+    clearTimeout(timeoutID);
+  }
+
   return (
-    <div>
-      <h1>My {brand}</h1>{" "}
-      <p>
-        It is a {color}
-        {model}
-        from {year}.{" "}
-      </p>{" "}
-    </div>
+    <>
+      <input
+        disabled={isSending}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <button disabled={isSending} onClick={handleSend}>
+        {isSending ? "Sending..." : "Send"}
+      </button>
+      {isSending && <button onClick={handleUndo}>Undo</button>}
+    </>
   );
-};
-export default Car;
-
-// class Car extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       brand: "Ford",
-//       model: "Mustang",
-//       color: "red",
-//       year: 1964,
-//     };
-//   }
-//   render() {
-//     return (
-//       <div>
-//         <h1>My {this.state.brand}</h1>
-//         <p>
-//           It is a {this.state.color}
-//           {this.state.model}
-//           from {this.state.year}.
-//         </p>
-//       </div>
-//     );
-//   }
-// }
+}
