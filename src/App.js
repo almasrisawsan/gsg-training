@@ -39,4 +39,34 @@ useEffect(() => {
 }, [a, b]); ----> exmp15
  */
 // usage:
-// 1- Connecting to external system -> exmp12
+// 1- Connecting to external system --> exmp12
+// 2- Listening to browser event --> exmp16
+// 3- Triggering animation --> exmp17
+// 4- Controlling modal dialog --> exmp18
+// 5- fetching data ->
+/**
+ * useEffect(() => {
+  let ignore = false;
+
+  async function startFetching() {
+    const json = await fetchTodos(userId);
+    if (!ignore) {
+      setTodos(json);
+    }
+  }
+
+  startFetching();
+
+  return () => {
+    ignore = true;
+  };
+}, [userId]);
+ */
+//6- Sending analytics
+/**
+ * useEffect(() => {
+  logVisit(url); // Sends a POST request
+}, [url]);
+ */
+// example --> examp19
+// exercises -> ex9, ex10, ex11, ex12
