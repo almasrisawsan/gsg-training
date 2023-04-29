@@ -5,6 +5,7 @@ export default function CatFriends() {
 
   function scrollToIndex(index) {
     const listNode = listRef.current;
+    console.log(listNode);
     // This line assumes a particular DOM structure:
     const imgNode = listNode.querySelectorAll("li > img")[index];
     imgNode.scrollIntoView({
@@ -24,13 +25,13 @@ export default function CatFriends() {
       <div>
         <ul ref={listRef}>
           <li>
-            <img src="https://placekitten.com/g/200/200" alt="Tom" />
+            <img src="https://placekitten.com/g/400/400" alt="Tom" />
           </li>
           <li>
-            <img src="https://placekitten.com/g/300/200" alt="Maru" />
+            <img src="https://placekitten.com/g/400/400" alt="Maru" />
           </li>
           <li>
-            <img src="https://placekitten.com/g/250/200" alt="Jellylorum" />
+            <img src="https://placekitten.com/g/450/400" alt="Jellylorum" />
           </li>
         </ul>
       </div>

@@ -6,8 +6,9 @@ export default function TodoList({ todos, theme, tab }) {
 
   //const visibleTodos = filterTodos(todos, tab);
 
-  const visibleTodos = useMemo(() => filterTodos(todos, tab), [todos, tab]);
+  //const visibleTodos = useMemo(() => filterTodos(todos, tab), [todos, tab]);
 
+  const visibleTodos = useMemo(() => filterTodos(todos, tab), [todos, tab]);
   return (
     <div className={theme}>
       <p>

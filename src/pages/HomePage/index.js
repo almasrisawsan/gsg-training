@@ -1,5 +1,5 @@
 import { memo, useState } from "react";
-import MyComponent from "../../components/Examples/exmp3/app";
+import MyComponent from "../../components/Examples/exmp9";
 
 export default function MyApp() {
   return (

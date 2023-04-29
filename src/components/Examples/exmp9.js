@@ -5,6 +5,7 @@ export default function VideoPlayer() {
   const ref = useRef(null);
 
   function handleClick() {
+    console.log(ref);
     const nextIsPlaying = !isPlaying;
     setIsPlaying(nextIsPlaying);
 
