@@ -10,20 +10,6 @@ function App() {
 }
 
 export default App;
-
-// New Hook -> useMemo
-// Usage:
-// Skipping expensive calculations -> exmp3
-// Skipping re-rendering with useMemo and memo -> exmp4
-// New Hook -> useRef : React Hook that lets you reference a value that’s not needed for rendering.
-// useRef -> exmp6
-// useRef to manipulate dom elements -> exmp7
-// scroll to image -> exmp8
-// Play Video -> exmp9
-// exercises -> ex1, ex2, ex3, ex4
-// Forward Ref -> exmp10
-// in Ref's -> avoid changing DOM elements managed by React -> exmp11
-// exercises -> ex5, ex6, ex7, ex8
 // useEffect
 /**
  * useEffect(() => {
@@ -43,24 +29,31 @@ useEffect(() => {
 // 2- Listening to browser event --> exmp16
 // 3- Triggering animation --> exmp17
 // 4- Controlling modal dialog --> exmp18
-// 5- fetching data ->
+// 5- fetching data -> product example dummy api
 /**
- * useEffect(() => {
-  let ignore = false;
+ * // Race condition: two different requests “raced” against each other and came in a different order than you expected 
+ * -> search example
+ * 
+ * function SearchResults({ query }) {
+  const [results, setResults] = useState([]);
+  const [page, setPage] = useState(1);
+  useEffect(() => {
+    let ignore = false;
+    fetchResults(query, page).then(json => {
+      if (!ignore) {
+        setResults(json);
+      }
+    });
+    return () => {
+      ignore = true;
+    };
+  }, [query, page]);
 
-  async function startFetching() {
-    const json = await fetchTodos(userId);
-    if (!ignore) {
-      setTodos(json);
-    }
+  function handleNextPageClick() {
+    setPage(page + 1);
   }
-
-  startFetching();
-
-  return () => {
-    ignore = true;
-  };
-}, [userId]);
+  // ...
+}
  */
 //6- Sending analytics
 /**

@@ -1,10 +1,35 @@
-import { memo, useState } from "react";
-import MyComponent from "../../components/Examples/exmp9";
+import { memo, useEffect, useState } from "react";
+import MyComponent from "../../components/Examples/exmp18/app";
+import axios from "axios";
+import { getData } from "./apis";
 
-export default function MyApp() {
+const ProductCard = ({ title, description, price }) => {
   return (
     <>
-      <MyComponent />
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <h4>Price: {price}</h4>
+      <hr />
+    </>
+  );
+};
+export default function MyApp() {
+  const [products, setProducts] = useState([]);
+
+  const getProducts = async () => {
+    const result = await getData();
+    setProducts(result);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  return (
+    <>
+      {products.map((product) => (
+        <ProductCard {...product} />
+      ))}
     </>
   );
 }

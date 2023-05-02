@@ -8,6 +8,27 @@ export default class DataBox extends React.Component {
     };
   }
 
+  // componentWillMount() {
+  //   //any logic
+  // }
+
+  componentDidMount() {
+    // useEffect(()=>{},[])
+    //any logic
+  }
+
+  componentWillUpdate() {
+    // any logic
+  }
+  //Rerender
+  componentDidUpdate() {
+    //any logic
+  }
+
+  componentWillUnmount() {
+    //any logic
+  }
+
   render() {
     return <h1>Hello</h1>;
   }
