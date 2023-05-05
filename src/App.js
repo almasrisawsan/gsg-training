@@ -10,26 +10,7 @@ function App() {
 }
 
 export default App;
-// useEffect
-/**
- * useEffect(() => {
-  // This runs after every render
-}); ----> exmp13
 
-useEffect(() => {
-  // This runs only on mount (when the component appears)
-}, []); ---> exmp14
-
-useEffect(() => {
-  // This runs on mount *and also* if either a or b have changed since the last render
-}, [a, b]); ----> exmp15
- */
-// usage:
-// 1- Connecting to external system --> exmp12
-// 2- Listening to browser event --> exmp16
-// 3- Triggering animation --> exmp17
-// 4- Controlling modal dialog --> exmp18
-// 5- fetching data -> product example dummy api
 /**
  * // Race condition: two different requests “raced” against each other and came in a different order than you expected 
  * -> search example
@@ -62,4 +43,11 @@ useEffect(() => {
 }, [url]);
  */
 // example --> examp19
-// exercises -> ex9, ex10, ex11, ex12
+// exercises -> ex9, ex10, ex11, ex12 -> on google classroom
+// Cases where useEffect is NOT needed:
+// 1- Updating state based on props or state --> exmp20
+// 2- Resetting all state when a prop changes --> exmp21
+// 3- Caching expensive calculations --> exmp22
+// 5- Sharing logic between event handlers --> exmp23
+// 6- Sending a POST request -->exmp24
+// exercise -> ex13

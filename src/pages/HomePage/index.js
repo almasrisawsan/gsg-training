@@ -1,35 +1,42 @@
-import { memo, useEffect, useState } from "react";
-import MyComponent from "../../components/Examples/exmp18/app";
-import axios from "axios";
-import { getData } from "./apis";
+import { useState, useEffect } from "react";
 
-const ProductCard = ({ title, description, price }) => {
-  return (
-    <>
-      <h1>{title}</h1>
-      <p>{description}</p>
-      <h4>Price: {price}</h4>
-      <hr />
-    </>
-  );
-};
-export default function MyApp() {
-  const [products, setProducts] = useState([]);
-
-  const getProducts = async () => {
-    const result = await getData();
-    setProducts(result);
-  };
+function Playground() {
+  const [text, setText] = useState("a");
 
   useEffect(() => {
-    getProducts();
-  }, []);
+    function onTimeout() {
+      console.log("⏰ " + text);
+    }
+
+    console.log('🔵 Schedule "' + text + '" log');
+    const timeoutId = setTimeout(onTimeout, 3000);
+
+    return () => {
+      console.log('🟡 Cancel "' + text + '" log');
+      clearTimeout(timeoutId);
+    };
+  }, [text]);
 
   return (
     <>
-      {products.map((product) => (
-        <ProductCard {...product} />
-      ))}
+      <label>
+        What to log:{" "}
+        <input value={text} onChange={(e) => setText(e.target.value)} />
+      </label>
+      <h1>{text}</h1>
+    </>
+  );
+}
+
+export default function App() {
+  const [show, setShow] = useState(false);
+  return (
+    <>
+      <button onClick={() => setShow(!show)}>
+        {show ? "Unmount" : "Mount"} the component
+      </button>
+      {show && <hr />}
+      {show && <Playground />}
     </>
   );
 }
