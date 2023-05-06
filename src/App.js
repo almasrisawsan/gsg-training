@@ -10,8 +10,6 @@ function App() {
 }
 
 export default App;
-
-// exercises -> ex9, ex10, ex11, ex12 -> on google classroom
 // Cases where useEffect is NOT needed:
 // 1- Updating state based on props or state --> exmp20
 // 2- Resetting all state when a prop changes --> exmp21
@@ -20,7 +18,7 @@ export default App;
 // 6- Sending a POST request -->exmp24
 // useCallback --> React Hook that lets you cache a function definition between re-renders.
 /** Usage:
- * 1- Skipping re-rendering of components -> exmp26, exmp27, exmp28
+ * 1- Skipping re-rendering of components -> exmp33, exmp26, exmp27, exmp28
  * 2- Preventing an Effect from firing too often --> exmp29
  */
 // useReducer --> Components with many state updates spread across many event handlers can get overwhelming.
