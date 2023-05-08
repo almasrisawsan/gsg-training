@@ -1,13 +1,22 @@
 function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState("");
 
-  // 🔴 Avoid: redundant state and unnecessary Effect
-  const [visibleTodos, setVisibleTodos] = useState([]);
-  useEffect(() => {
-    setVisibleTodos(getFilteredTodos(todos, filter));
-  }, [todos, filter]);
+    // const visibleTodos = useMemo(
+    //   () => getFilteredTodos(todos, filter),
+    //   [todos, filter]
+    // );
+
+    const visibleTodos = useMemo(()=>getFilteredTodos(todos, filter),[todos,filter]);
+  //const [visibleTodos, setVisibleTodos] = useState([]);
+  // useEffect(() => {
+  //   setVisibleTodos(getFilteredTodos(todos, filter));
+  // }, [todos, filter]);
 
   // ...
+
+  return {
+    visibleTodos.length ? visibleTodos.map(item=><>{item}</>):<>Loading</>
+  };
 }
 
 // Solution -> calculate during rendering

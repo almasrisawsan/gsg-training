@@ -9,7 +9,7 @@ export default function ProductPage({ productId, referrer, theme }) {
         orderDetails,
       });
     },
-    [productId, referrer]
+    [referrer, productId]
   );
 
   return (

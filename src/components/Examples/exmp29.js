@@ -1,19 +1,23 @@
+import { useCallback } from "react";
+
 function ChatRoom({ roomId }) {
   const [message, setMessage] = useState('');
 
-  function createOptions() {
+
+
+  useEffect(() => {
+      const createOptions = ()=> {
     return {
       serverUrl: 'https://localhost:1234',
       roomId: roomId
     };
-  }
-
-  useEffect(() => {
+  };
+  
     const options = createOptions();
     const connection = createConnection();
     connection.connect();
     return () => connection.disconnect();
-  }, [createOptions]); // 🔴 Problem: This dependency changes on every render
+  }, [roomId]); // 🔴 Problem: This dependency changes on every render
 
   //Solution
   /**
