@@ -1,7 +1,14 @@
-import MyComponent from "../../components/Examples/exmp31/app";
+import ClickCounter from "../../components/ClickCounter";
+import HoverCounter from "../../components/HoverCounter";
 
 const index = () => {
-  return <MyComponent />;
+  return (
+    <div className="App">
+      {/*Render both of these components to the UI */}
+      <ClickCounter />
+      <HoverCounter />
+    </div>
+  );
 };
 
 export default index;
