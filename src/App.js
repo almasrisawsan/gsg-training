@@ -15,6 +15,9 @@ function App() {
 
 export default App;
 /**
- * Continue in React Context
- * Higher order components --> exmp34, exmp33
+// Custom hooks -> custom hook for use context ->exmp35
+// useData --> exmp36
+// useInput --> exmp37
+// useCounter --> exmp38
+ex
  */
