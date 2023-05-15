@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Form() {
   const [firstName, setFirstName] = useState("Mary");
@@ -31,10 +31,9 @@ export default function Form() {
   );
 }
 
-/**
- * Extract Hook
- * app
- * import { useFormInput } from './useFormInput.js';
+
+
+import { useFormInput } from './useFormInput.js';
 
 export default function Form() {
   const firstNameProps = useFormInput('Mary');
@@ -59,18 +58,8 @@ export default function Form() {
 import { useState } from 'react';
 
 export function useFormInput(initialValue) {
-  const [value, setValue] = useState(initialValue);
-
-  function handleChange(e) {
-    setValue(e.target.value);
-  }
-
-  const inputProps = {
-    value: value,
-    onChange: handleChange
-  };
-
-  return inputProps;
+  // any logic
+  return initialValue;
 }
 
- */
+

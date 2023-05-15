@@ -1,14 +1,7 @@
 import { useState, useEffect } from "react";
-import ReactDOM from "react-dom/client";
 
 const Home = () => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
+  const data = useFetch("https://jsonplaceholder.typicode.com/todos");
 
   return (
     <>
@@ -21,8 +14,8 @@ const Home = () => {
 };
 
 //Export into Hook
-/**
- * import { useState, useEffect } from "react";
+
+import { useState, useEffect } from "react";
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
@@ -33,9 +26,9 @@ const useFetch = (url) => {
       .then((data) => setData(data));
   }, [url]);
 
-  return [data];
+  return data;
 };
 
 export default useFetch;
- */
+
 //  const [data] = useFetch("https://jsonplaceholder.typicode.com/todos");
